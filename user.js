@@ -35,7 +35,7 @@ app.get('/users/:id', (req, res) => {
   const user = findUserById(Number(req.params.id));
   
   if (!user) {
-    return res.status(404).json({ message: 'User not found' });
+    return res.status(404).json({ message: 'User is Not Found' });
   }
   
   res.json(user);
@@ -46,7 +46,7 @@ app.put('/users/:id', (req, res) => {
   const user = findUserById(Number(req.params.id));
   
   if (!user) {
-    return res.status(404).json({ message: 'User not found' });
+    return res.status(404).json({ message: 'User is Not Found' });
   }
   
   const { name, email, username } = req.body;
@@ -61,7 +61,7 @@ app.delete('/users/:id', (req, res) => {
   const userIndex = users.findIndex((user) => user.id === Number(req.params.id));
   
   if (userIndex === -1) {
-    return res.status(404).json({ message: 'User not found' });
+    return res.status(404).json({ message: 'User is Not Found' });
   }
   
   users.splice(userIndex, 1);
